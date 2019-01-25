@@ -3,6 +3,9 @@ server:
 spring:
   application:
     name: recipes-service
+  sleuth:
+    sampler:
+      percentage: 1.0
 eureka:
   client:
     serviceUrl:

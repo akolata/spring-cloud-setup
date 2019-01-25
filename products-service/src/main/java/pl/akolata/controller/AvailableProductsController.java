@@ -23,6 +23,7 @@ public class AvailableProductsController {
 
     @GetMapping(path = "/products", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public List<Ingredient> getAvailableProducts() {
+        log.info("Request for available products");
         return productsService.findAvailableIngredients();
     }
 }

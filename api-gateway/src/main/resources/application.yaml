@@ -3,6 +3,9 @@ server:
 spring:
   application:
     name: api-gateway
+  sleuth:
+    sampler:
+      percentage: 1.0
 eureka:
   client:
     serviceUrl:
