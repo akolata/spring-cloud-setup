@@ -11,6 +11,6 @@ import java.util.List;
 @RibbonClient(name = "products-service")
 public interface AvailableIngredientsProxy {
 
-    @GetMapping(path = "/products-service/products")
+    @GetMapping(path = "/api/products")
     List<Ingredient> getAvailableIngredients();
 }

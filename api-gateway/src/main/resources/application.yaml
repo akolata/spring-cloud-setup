@@ -7,3 +7,14 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
+zuul:
+  prefix: /api
+  routes:
+    products:
+      path: /products/**
+      serviceId: products-service
+      stripPrefix: false
+    recipes:
+      path: /recipes/**
+      serviceId: recipes-service
+      stripPrefix: false
