@@ -1,3 +1,4 @@
 rootProject.name = 'spring-cloud-security-tutorial'
 
 include 'discovery-server'
+include 'recipes-service'
