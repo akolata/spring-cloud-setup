@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import pl.akolata.dto.RecipeResponse;
+import pl.akolata.model.Ingredient;
 import pl.akolata.model.Recipe;
+import pl.akolata.proxy.AvailableIngredientsProxy;
 import pl.akolata.service.RecipesService;
 
 import java.util.List;
@@ -19,10 +21,12 @@ import java.util.Optional;
 public class RecipesController {
 
     private final RecipesService recipesService;
+    private final AvailableIngredientsProxy availableIngredientsProxy;
 
     @Autowired
-    public RecipesController(RecipesService recipesService) {
+    public RecipesController(RecipesService recipesService, AvailableIngredientsProxy availableIngredientsProxy) {
         this.recipesService = recipesService;
+        this.availableIngredientsProxy = availableIngredientsProxy;
     }
 
     @GetMapping(path = "/recipes")
@@ -45,6 +49,9 @@ public class RecipesController {
         Recipe recipe = recipeById.get();
         log.info("Recipe with id found: {}", recipe);
 
-        return ResponseEntity.ok().body(new RecipeResponse(recipe, null));
+        List<Ingredient> availableIngredients = availableIngredientsProxy.getAvailableIngredients();
+        log.info("Available ingredients: {}", availableIngredients.size());
+
+        return ResponseEntity.ok().body(new RecipeResponse(recipe, availableIngredients));
     }
 }
