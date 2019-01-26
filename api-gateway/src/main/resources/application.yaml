@@ -21,3 +21,16 @@ zuul:
       path: /recipes/**
       serviceId: recipes-service
       stripPrefix: false
+  sensitive-headers:
+security:
+  oauth2:
+    client:
+      access-token-uri: http://localhost:9000/oauth/token
+      user-authorization-uri: http://localhost:9000/oauth/authorize
+      client-id: client
+      client-secret: secret
+    resource:
+      userInfoUri: http://localhost:9000/user
+logging:
+  level:
+    root: debug
