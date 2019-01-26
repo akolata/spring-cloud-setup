@@ -5,7 +5,7 @@ spring:
     name: recipes-service
   sleuth:
     sampler:
-      percentage: 1.0
+      probability: 1.0
 eureka:
   client:
     serviceUrl:
@@ -20,6 +20,7 @@ security:
       user-authorization-uri: http://localhost:9000/oauth/authorize
     resource:
       token-info-uri: http://localhost:9000/oauth/check_token
+      userInfoUri: http://localhost:9000/user
 logging:
   level:
     root: debug

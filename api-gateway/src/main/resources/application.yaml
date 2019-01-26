@@ -5,7 +5,7 @@ spring:
     name: api-gateway
   sleuth:
     sampler:
-      percentage: 1.0
+      probability: 1.0
 eureka:
   client:
     serviceUrl:
