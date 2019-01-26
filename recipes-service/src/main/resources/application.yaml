@@ -20,3 +20,6 @@ security:
       user-authorization-uri: http://localhost:9000/oauth/authorize
     resource:
       token-info-uri: http://localhost:9000/oauth/check_token
+logging:
+  level:
+    root: debug

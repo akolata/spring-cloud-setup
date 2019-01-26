@@ -7,10 +7,10 @@ import pl.akolata.model.Ingredient;
 
 import java.util.List;
 
-@FeignClient(name = "api-gateway")
+@FeignClient(name = "products-service", configuration = FeignConfiguration.class)
 @RibbonClient(name = "products-service")
 public interface AvailableIngredientsProxy {
 
-    @GetMapping(path = "/api/products")
+    @GetMapping(path = "/products")
     List<Ingredient> getAvailableIngredients();
 }
