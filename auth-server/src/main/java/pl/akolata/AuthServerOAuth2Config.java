@@ -56,6 +56,12 @@ public class AuthServerOAuth2Config extends AuthorizationServerConfigurerAdapter
                 .secret("secret")
                 .authorizedGrantTypes("password", "authorization_code")
                 .scopes("read", "write")
+                .accessTokenValiditySeconds(60 * 60 * 8)
+                .and()
+                .withClient("angularClient")
+                .secret("angularSecret")
+                .authorizedGrantTypes("password", "authorization_code")
+                .scopes("read", "write")
                 .accessTokenValiditySeconds(60 * 60 * 8);
     }
 
