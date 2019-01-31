@@ -15,7 +15,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                 .permitAll()
                 .and()
-                .httpBasic().disable();
+                .httpBasic().disable().csrf().disable().cors().disable();
     }
 
     @Override

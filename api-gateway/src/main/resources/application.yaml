@@ -21,6 +21,9 @@ zuul:
       path: /recipes/**
       serviceId: recipes-service
       stripPrefix: false
+    auth:
+      path: /uaa/**
+      serviceId: AUTH-SERVER-OAUTH2
   sensitive-headers:
 security:
   oauth2:
@@ -33,4 +36,7 @@ security:
       userInfoUri: http://localhost:9000/user
 logging:
   level:
-    root: debug
+    org:
+      springframework: debug
+    com:
+      netflix: off
